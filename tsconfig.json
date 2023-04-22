@@ -18,7 +18,11 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~env": ["./src/env.mjs"],
+      "~server/*": ["./src/server/*"],
+      "~utils/*": ["./src/utils/*"],
+      "~components": ["./src/components"],
+      "~icons": ["./src/assets/icons"]
     }
   },
   "include": [
