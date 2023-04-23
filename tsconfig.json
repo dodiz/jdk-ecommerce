@@ -17,12 +17,15 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "paths": {
       "~env": ["./src/env.mjs"],
       "~server/*": ["./src/server/*"],
       "~utils/*": ["./src/utils/*"],
       "~components": ["./src/components"],
-      "~icons": ["./src/assets/icons"]
+      "~icons": ["./src/assets/icons"],
+      "~styles/*": ["./src/styles/*"],
+      "~common/*": ["./src/common/*"]
     }
   },
   "include": [

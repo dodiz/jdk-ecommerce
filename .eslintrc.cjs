@@ -12,6 +12,12 @@ const config = {
       parserOptions: {
         project: path.join(__dirname, "tsconfig.json"),
       },
+      rules: {
+        /**
+         * Disabled rules to work with CSS Modules in template literals
+         */
+        "@typescript-eslint/restrict-template-expressions": "off"
+      }
     },
   ],
   parser: "@typescript-eslint/parser",
