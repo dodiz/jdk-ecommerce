@@ -21,7 +21,7 @@
     "paths": {
       "~env": ["./src/env.mjs"],
       "~server/*": ["./src/server/*"],
-      "~utils/*": ["./src/utils/*"],
+      "~utils": ["./src/utils"],
       "~components": ["./src/components"],
       "~icons": ["./src/assets/icons"],
       "~styles/*": ["./src/styles/*"],

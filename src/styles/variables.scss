@@ -1,0 +1,52 @@
+$color-text: #808080;
+$color-dark: #4a4545;
+$color-light: #fff;
+$color-light-secondary: #e2e2e2;
+$color-light-tertiary: #f5f5f5;
+$color-secondary: #e59f6d;
+$color-secondary-light: #f6ede9;
+$color-error: #e95f4f;
+$color-success: #07bc0c;
+$color-warning: #f1c40f;
+$font-main: "Poppins", Arial, Helvetica, sans-serif;
+$box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+
+$toastify-color-light: $color-light;
+$toastify-color-dark: $color-dark;
+$toastify-color-info: #3498db;
+$toastify-color-success: $color-success;
+$toastify-color-warning: $color-warning;
+$toastify-color-error: $color-error;
+$toastify-color-transparent: rgba(255, 255, 255, 0.7);
+$toastify-icon-color-info: $toastify-color-info;
+$toastify-icon-color-success: $toastify-color-success;
+$toastify-icon-color-warning: $toastify-color-warning;
+$toastify-icon-color-error: $toastify-color-error;
+$toastify-toast-width: 320px;
+$toastify-toast-background: #fff;
+$toastify-toast-min-height: 64px;
+$toastify-toast-max-height: 800px;
+$toastify-font-family: sans-serif;
+$toastify-z-index: 9999;
+$toastify-text-color-light: #757575;
+$toastify-text-color-dark: #fff;
+$toastify-text-color-info: #fff;
+$toastify-text-color-success: #fff;
+$toastify-text-color-warning: #fff;
+$toastify-text-color-error: #fff;
+$toastify-spinner-color: #616161;
+$toastify-spinner-color-empty-area: #e0e0e0;
+$toastify-color-progress-light: linear-gradient(
+  to right,
+  #4cd964,
+  #5ac8fa,
+  #007aff,
+  #34aadc,
+  #5856d6,
+  #ff2d55
+);
+$toastify-color-progress-dark: #bb86fc;
+$toastify-color-progress-info: $toastify-color-info;
+$toastify-color-progress-success: $toastify-color-success;
+$toastify-color-progress-warning: $toastify-color-warning;
+$toastify-color-progress-error: $toastify-color-error;
