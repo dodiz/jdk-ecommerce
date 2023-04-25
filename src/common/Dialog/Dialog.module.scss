@@ -24,11 +24,17 @@
   min-width: 60rem;
   max-width: 80rem;
   border-radius: 0.3rem;
-  padding: 2rem;
+  padding: 3rem;
   background: $color-light;
   transform: translateY(5rem);
   opacity: 0;
   animation: slideUp 0.3s ease-in-out forwards;
+}
+
+.title {
+  border-bottom: 2px solid $color-light-secondary;
+  padding: 0 0 1rem 0;
+  margin-bottom: 2rem;
 }
 
 @keyframes slideUp {
