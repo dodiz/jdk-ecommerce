@@ -1,7 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-
-import { api } from "~/utils/api";
+import { Navbar } from "~components";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +13,9 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>JDK</main>
+      <main>
+        <Navbar />
+      </main>
     </>
   );
 };
