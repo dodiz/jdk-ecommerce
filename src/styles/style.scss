@@ -25,17 +25,12 @@ body {
   color: $color-text;
   font-size: 1.6rem;
 }
-
-a:link,
-a:visited,
-a:hover,
-a:active {
+a {
   text-decoration: none;
   color: $color-dark;
-}
-a:hover,
-.link:hover {
-  color: $color-secondary;
+  &:hover {
+    color: $color-secondary;
+  }
 }
 
 h1,

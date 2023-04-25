@@ -1,7 +1,8 @@
 import Link from "next/link";
-import styles from "./Navbar.module.css";
+import styles from "./Navbar.module.scss";
 import { Dropdown } from "~common/Dropdown";
 import { AccountIcon } from "~icons";
+import { navbarUtils } from "./Navbar.utils";
 
 export const Navbar = () => {
   return (
@@ -12,27 +13,17 @@ export const Navbar = () => {
         <span className={styles.logoLetter}>K</span>it
       </Link>
       <div className={styles.section}>
-        <Link className={styles.item} href="/">
-          Home
-        </Link>
-        <Link className={styles.item} href="/shop?gender=2">
-          Abbigliamento Uomo
-        </Link>
-        <Link className={styles.item} href="/shop?gender=1">
-          Abbigliamento Donna
-        </Link>
-        <Link className={styles.item} href="/about-us">
-          About us
-        </Link>
+        {navbarUtils.menuLinks.map(({ label, path }) => (
+          <Link key={label} className={styles.item} href={path}>
+            {label}
+          </Link>
+        ))}
       </div>
-      <Dropdown icon={<AccountIcon />} label="Login">
-        <Link href="/login" className={styles.dropdownItem}>
-          Login
-        </Link>
-        <Link href="/signup" className={styles.dropdownItem}>
-          Register
-        </Link>
-      </Dropdown>
+      <Dropdown
+        icon={<AccountIcon />}
+        label="Login"
+        links={navbarUtils.userLinks}
+      />
     </div>
   );
 };
