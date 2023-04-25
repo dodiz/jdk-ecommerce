@@ -25,7 +25,7 @@
       "~components": ["./src/components"],
       "~icons": ["./src/assets/icons"],
       "~styles/*": ["./src/styles/*"],
-      "~common/*": ["./src/common/*"]
+      "~common": ["./src/common"]
     }
   },
   "include": [
