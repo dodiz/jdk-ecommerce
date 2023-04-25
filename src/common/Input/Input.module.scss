@@ -24,3 +24,10 @@
     border-color: $color-secondary;
   }
 }
+
+.error {
+  font-style: italic;
+  color: $color-error;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}

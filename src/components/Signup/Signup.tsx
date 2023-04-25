@@ -51,13 +51,7 @@ export const Signup: React.FC<SignupProps> = ({
         Already have an account? Login instead
       </a>
       <div className={styles.divider}>
-        <Button
-          onClick={() => {
-            console.log("Signup");
-          }}
-        >
-          Signup
-        </Button>
+        <Button>Signup</Button>
       </div>
       <p className={styles.disclaimer}>
         By signing up you agree to our terms of service

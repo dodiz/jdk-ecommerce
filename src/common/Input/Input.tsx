@@ -4,9 +4,15 @@ type InputProps = {
   label: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 };
 
-export const Input: React.FC<InputProps> = ({ label, value, onChange }) => {
+export const Input: React.FC<InputProps> = ({
+  label,
+  value,
+  onChange,
+  error,
+}) => {
   return (
     <label className={styles.group}>
       <h4 className={styles.label}>{label}</h4>
@@ -16,6 +22,7 @@ export const Input: React.FC<InputProps> = ({ label, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
+      {error && <p className={styles.error}>{error}</p>}
     </label>
   );
 };
