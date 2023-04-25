@@ -1,4 +1,8 @@
+import { useEffect, useMemo } from "react";
 import { useFormik } from "formik";
+import { z } from "zod";
+import { toFormikValidate } from "zod-formik-adapter";
+
 import { Button, Dialog, Input } from "~common";
 
 import styles from "./Signin.module.scss";
@@ -14,8 +18,18 @@ export const Signin: React.FC<SigninProps> = ({
   onHide,
   onSignupClick,
 }) => {
+  const validate = useMemo(
+    () =>
+      toFormikValidate(
+        z.object({
+          email: z.string().email("Invalid email address"),
+          password: z.string().nonempty("Password is required"),
+        })
+      ),
+    []
+  );
+
   const formik = useFormik({
-    initialErrors: { email: "" },
     initialValues: {
       email: "",
       password: "",
@@ -23,41 +37,42 @@ export const Signin: React.FC<SigninProps> = ({
     onSubmit: (values) => {
       console.log(values);
     },
-    validate: (values) => {
-      const errors = { email: "", password: "" };
-      if (!values.email) {
-        errors.email = "Required";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-      ) {
-        errors.email = "Invalid email address";
-      }
-      if (!values.password) {
-        errors.password = "Required";
-      }
-      return errors;
-    },
+    validate,
   });
+
+  useEffect(() => {
+    if (!show) {
+      formik.resetForm();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [show]);
+
   return (
     <Dialog show={show} onHide={onHide} title="Login">
       <form onSubmit={formik.handleSubmit}>
         <Input
           label="email"
+          name="email"
           value={formik.values.email}
-          onChange={formik.handleChange("email")}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           error={formik.errors.email}
         />
         <Input
           label="password"
+          name="password"
+          type="password"
           value={formik.values.password}
-          onChange={formik.handleChange("password")}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.password}
         />
         <a className={styles.link}>Forgot password?</a>
         <a className={styles.link} onClick={onSignupClick}>
           Need an account? Signup!
         </a>
         <div className={styles.divider}>
-          <Button>Login</Button>
+          <Button label="Login" type="submit" disabled={!formik.isValid} />
         </div>
       </form>
     </Dialog>

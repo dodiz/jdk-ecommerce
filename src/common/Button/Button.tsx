@@ -1,19 +1,15 @@
-import type { PropsWithChildren } from "react";
 import styles from "./Button.module.scss";
 
-type ButtonProps = PropsWithChildren & {
+type ButtonProps = {
+  label: string;
   onClick?: () => void;
   disabled?: boolean;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  onClick,
-  disabled = false,
-}) => {
+export const Button: React.FC<ButtonProps> = ({ label, ...rest }) => {
   return (
-    <button className={styles.button} disabled={disabled} onClick={onClick}>
-      {children}
+    <button className={styles.button} {...rest}>
+      {label}
     </button>
   );
 };

@@ -23,9 +23,12 @@
   &:focus {
     border-color: $color-secondary;
   }
+  &.error {
+    border-color: $color-error;
+  }
 }
 
-.error {
+.errorMessage {
   font-style: italic;
   color: $color-error;
   margin-top: 0.5rem;

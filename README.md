@@ -1,8 +1,8 @@
 # Java Dressing Kit E-commerce
 
-JDK is a simple clothing e-commerce website made for portfolio reasons.
+JDK is a simple clothing e-commerce website made for portfolio purposes.
 
-# Main Stack
+# Tech stack
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
@@ -11,15 +11,20 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 - [Prisma](https://prisma.io)
 - [tRPC](https://trpc.io)
 
-# UI Libraries
+## UI Libraries
 
 - [SCSS Modules](https://sass-lang.com/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 
-# Some UI custom components made from scratch
+## Some UI custom components made from scratch
 
 - Dialog Modal (Visible when trying to login / signup)
 - Dropdown menu (Visible from navbar)
+
+## Utilities libraries
+
+- [Formik](https://formik.org/) for form handling
+- [Zod](https://zod.dev/) for DTO and form validation
 
 # Features
 

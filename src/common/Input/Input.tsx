@@ -1,28 +1,21 @@
+import classNames from "classnames";
 import styles from "./Input.module.scss";
 
 type InputProps = {
   label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: React.FC<InputProps> = ({
-  label,
-  value,
-  onChange,
-  error,
-}) => {
+export const Input: React.FC<InputProps> = ({ label, error, ...rest }) => {
   return (
     <label className={styles.group}>
       <h4 className={styles.label}>{label}</h4>
       <input
-        className={styles.input}
+        className={classNames(styles.input, { [styles.error]: error })}
         type="text"
-        value={value}
-        onChange={onChange}
+        {...rest}
       />
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p className={styles.errorMessage}>{error}</p>}
     </label>
   );
 };
