@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { Dropdown } from "~common";
 import { AccountIcon } from "~icons";
@@ -12,18 +12,36 @@ export const Navbar = () => {
   const [showSignin, setShowSignin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
+  const handleSwitchToSignup = useCallback(() => {
+    setShowSignin(false);
+    setShowSignup(true);
+  }, []);
+
+  const handleSwitchToSignin = useCallback(() => {
+    setShowSignup(false);
+    setShowSignin(true);
+  }, []);
+
   const signLinks = useMemo(
     () => [
       { label: "Login", onClick: () => setShowSignin(true) },
       { label: "Signup", onClick: () => setShowSignup(true) },
     ],
-    [setShowSignin, setShowSignup]
+    []
   );
 
   return (
     <>
-      <Signin show={showSignin} onHide={() => setShowSignin(false)} />
-      <Signup show={showSignup} onHide={() => setShowSignup(false)} />
+      <Signin
+        onSignupClick={handleSwitchToSignup}
+        show={showSignin}
+        onHide={() => setShowSignin(false)}
+      />
+      <Signup
+        onSigninClick={handleSwitchToSignin}
+        show={showSignup}
+        onHide={() => setShowSignup(false)}
+      />
       <div className={styles.navbar}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoLetter}>J</span>ava

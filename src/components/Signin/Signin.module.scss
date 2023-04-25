@@ -1,0 +1,11 @@
+@import "~styles/globals";
+
+.link {
+  margin-top: 2rem;
+  display: block;
+  @extend .link;
+}
+
+.divider {
+  margin-top: 2rem;
+}
