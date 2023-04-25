@@ -16,6 +16,7 @@ JDK is a simple clothing e-commerce website made for portfolio reasons.
 
 # UI Libraries
 
+- [SCSS Modules](https://sass-lang.com/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 
 # Features
