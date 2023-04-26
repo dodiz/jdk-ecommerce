@@ -56,7 +56,7 @@ export const Signin: React.FC<SigninProps> = ({
           value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.errors.email}
+          error={formik.touched.email && formik.errors.email}
         />
         <Input
           label="password"
@@ -65,7 +65,7 @@ export const Signin: React.FC<SigninProps> = ({
           value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.errors.password}
+          error={formik.touched.password && formik.errors.password}
         />
         <a className={styles.link}>Forgot password?</a>
         <a className={styles.link} onClick={onSignupClick}>

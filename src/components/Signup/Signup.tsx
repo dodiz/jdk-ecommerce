@@ -62,15 +62,17 @@ export const Signup: React.FC<SignupProps> = ({
           label="email"
           name="email"
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           value={formik.values.email}
-          error={formik.errors.email}
+          error={formik.touched.email && formik.errors.email}
         />
         <Input
           label="password"
           name="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          error={formik.errors.password}
+          onBlur={formik.handleBlur}
+          error={formik.touched.password && formik.errors.password}
           type="password"
         />
         <Input
@@ -79,7 +81,9 @@ export const Signup: React.FC<SignupProps> = ({
           value={formik.values.passwordConfirm}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.errors.passwordConfirm}
+          error={
+            formik.touched.passwordConfirm && formik.errors.passwordConfirm
+          }
           type="password"
         />
         <a className={styles.link} onClick={onSigninClick}>
