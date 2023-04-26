@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
+import { toast } from "react-toastify";
 
 import { Button, Dialog, Input } from "~common";
 
@@ -34,8 +35,8 @@ export const Signin: React.FC<SigninProps> = ({
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: () => {
+      toast.info("Signin not yet implemented");
     },
     validate,
   });
