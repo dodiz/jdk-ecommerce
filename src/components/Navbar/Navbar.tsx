@@ -55,7 +55,11 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <Dropdown icon={<AccountIcon />} label="Login" links={signLinks} />
+        <Dropdown
+          icon={<AccountIcon />}
+          label={<div onClick={() => setShowSignin(true)}>Login</div>}
+          links={signLinks}
+        />
       </div>
     </>
   );
