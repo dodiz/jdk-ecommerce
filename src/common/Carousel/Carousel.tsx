@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import styles from "./Carousel.module.scss";
-import classNames from "classnames";
+import cx from "classnames";
 import { ArrowDownIcon } from "~icons";
 
 type CarouselProps = {
@@ -56,7 +56,7 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
         </div>
       </div>
       <div
-        className={classNames(styles.control, styles.controlRight)}
+        className={cx(styles.control, styles.controlRight)}
         onClick={slideRight}
       >
         <div className={styles.arrow}>

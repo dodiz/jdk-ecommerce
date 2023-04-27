@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cx from "classnames";
 import styles from "./Input.module.scss";
 
 type InputProps = {
@@ -11,7 +11,7 @@ export const Input: React.FC<InputProps> = ({ label, error, ...rest }) => {
     <label className={styles.group}>
       <h4 className={styles.label}>{label}</h4>
       <input
-        className={classNames(styles.input, { [styles.error]: error })}
+        className={cx(styles.input, { [styles.error]: error })}
         type="text"
         {...rest}
       />
