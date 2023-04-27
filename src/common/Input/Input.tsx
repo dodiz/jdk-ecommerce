@@ -11,7 +11,7 @@ export const Input: React.FC<InputProps> = ({ label, error, ...rest }) => {
     <label className={styles.group}>
       <h4 className={styles.label}>{label}</h4>
       <input
-        className={cx(styles.input, { [styles.error]: error })}
+        className={cx(styles.input, { [styles.error as string]: error })}
         type="text"
         {...rest}
       />
