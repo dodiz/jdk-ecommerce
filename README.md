@@ -18,8 +18,9 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## Some UI custom components made from scratch
 
-- Dialog Modal (Visible when trying to login / signup)
 - Dropdown menu (Visible from navbar)
+- Dialog Modal (Visible when trying to login / signup). Inspiration from [React Bootstrap](https://react-bootstrap.github.io/components/modal/)
+- Carousel (Visible on homepage). Inspiration from [React Bootstrap](https://react-bootstrap.github.io/components/carousel/)
 
 ## Utilities libraries
 
