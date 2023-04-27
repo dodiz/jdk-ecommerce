@@ -6,6 +6,7 @@ import { ArrowDownIcon } from "~icons";
 type CarouselProps = {
   slides: {
     title: string;
+    content: React.ReactNode;
     background: string;
   }[];
 };
@@ -39,9 +40,13 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
           transform: `translateX(${innerTranslate})`,
         }}
       >
-        {slides.map((s) => (
-          <div key={s.title} className={styles.slide}>
-            <h1>{s.title}</h1>
+        {slides.map(({ background, content }, i) => (
+          <div
+            key={i}
+            className={styles.slide}
+            style={{ backgroundImage: `url(${background})` }}
+          >
+            {content}
           </div>
         ))}
       </div>

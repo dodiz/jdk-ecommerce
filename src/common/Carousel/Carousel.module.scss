@@ -19,10 +19,9 @@
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-
-  h1 {
-    color: $color-dark;
-  }
+  background-size: 100% auto;
+  background-position: center right;
+  position: relative;
 }
 
 .control {

@@ -24,6 +24,7 @@
       "~utils": ["./src/utils"],
       "~components": ["./src/components"],
       "~icons": ["./src/assets/icons"],
+      "~images/*": ["./src/assets/images/*"],
       "~styles/*": ["./src/styles/*"],
       "~common": ["./src/common"]
     }
