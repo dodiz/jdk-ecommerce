@@ -33,4 +33,21 @@
   padding: 2rem;
   text-transform: capitalize;
   transition: color 0.3s;
+  align-items: center;
+  &:hover a {
+    color: $color-secondary;
+  }
+  &:hover svg {
+    fill: $color-secondary;
+  }
+  svg {
+    margin-right: 1rem;
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.account {
+  display: flex;
+  @extend .item;
 }

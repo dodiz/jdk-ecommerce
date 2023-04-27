@@ -19,9 +19,10 @@
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  background-size: 100% auto;
-  background-position: center right;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .control {
@@ -38,30 +39,30 @@
   &:hover .arrow {
     transform: scale(1.1);
   }
+  .arrow {
+    background: $color-light;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    box-shadow: 0 0 1rem rgb(135, 135, 135);
+    transition: all 0.3s;
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: $color-dark;
+      transform: rotate(90deg);
+    }
+  }
 }
 
 .controlRight {
+  @extend .control;
   left: auto;
   right: 0%;
   left: 90%;
   justify-content: flex-start;
   .arrow svg {
     transform: rotate(-90deg);
-  }
-}
-
-.arrow {
-  background: $color-light;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  padding: 1.2rem;
-  box-shadow: 0 0 1rem rgb(135, 135, 135);
-  transition: all 0.3s;
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: $color-dark;
-    transform: rotate(90deg);
   }
 }

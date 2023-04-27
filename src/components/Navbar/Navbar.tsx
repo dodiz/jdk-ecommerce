@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
-import { Dropdown } from "~common";
 import { AccountIcon } from "~icons";
 import { Signin, Signup } from "~components";
 
@@ -21,14 +20,6 @@ export const Navbar = () => {
     setShowSignup(false);
     setShowSignin(true);
   }, []);
-
-  const signLinks = useMemo(
-    () => [
-      { label: "Login", onClick: () => setShowSignin(true) },
-      { label: "Signup", onClick: () => setShowSignup(true) },
-    ],
-    []
-  );
 
   return (
     <>
@@ -55,11 +46,12 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <Dropdown
-          icon={<AccountIcon />}
-          label={<div onClick={() => setShowSignin(true)}>Login</div>}
-          links={signLinks}
-        />
+        <div className={styles.section}>
+          <div className={styles.account} onClick={() => setShowSignin(true)}>
+            <AccountIcon />
+            <a>Login</a>
+          </div>
+        </div>
       </div>
     </>
   );
