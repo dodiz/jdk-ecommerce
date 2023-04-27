@@ -23,9 +23,11 @@
   &:focus {
     border-color: $color-secondary;
   }
-  &.error {
-    border-color: $color-error;
-  }
+}
+
+.inputError {
+  @extend .input;
+  border-color: $color-error;
 }
 
 .errorMessage {

@@ -22,14 +22,6 @@ export const Navbar = () => {
     setShowSignin(true);
   }, []);
 
-  const signLinks = useMemo(
-    () => [
-      { label: "Login", onClick: () => setShowSignin(true) },
-      { label: "Signup", onClick: () => setShowSignup(true) },
-    ],
-    []
-  );
-
   return (
     <>
       <Signin
@@ -55,11 +47,12 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <Dropdown
-          icon={<AccountIcon />}
-          label={<div onClick={() => setShowSignin(true)}>Login</div>}
-          links={signLinks}
-        />
+        <div className={styles.section}>
+          <div className={styles.account} onClick={() => setShowSignin(true)}>
+            <AccountIcon />
+            <a>Login</a>
+          </div>
+        </div>
       </div>
     </>
   );
