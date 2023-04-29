@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { Navbar, Slider, Footer } from "~components";
+import { Slider } from "~components";
 
 const Home: NextPage = () => {
   return (
@@ -11,13 +11,8 @@ const Home: NextPage = () => {
           name="description"
           content="E-commerce made for portfolio purposes"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Navbar />
-        <Slider />
-        <Footer />
-      </main>
+      <Slider />
     </>
   );
 };

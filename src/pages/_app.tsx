@@ -6,6 +6,7 @@ import { api } from "~utils";
 
 import "react-toastify/dist/ReactToastify.css";
 import "~styles/style.scss";
+import { Navbar, Footer } from "~components";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -14,7 +15,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ToastContainer />
+      <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </SessionProvider>
   );
 };

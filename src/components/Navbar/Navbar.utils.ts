@@ -13,36 +13,8 @@ export const navbarUtils = {
       path: "/shop?gender=2",
     },
     {
-      label: "About us",
-      path: "/about-us",
-    },
-  ],
-  loginLinks: [
-    {
-      label: "Login",
-      path: "/login",
-    },
-    {
-      label: "Signup",
-      path: "/register",
-    },
-  ],
-  userLinks: [
-    {
-      label: "My Account",
-      path: "/account",
-    },
-    {
-      label: "Change password",
-      path: "/account/change-password",
-    },
-    {
-      label: "Change email",
-      path: "/account/change-email",
-    },
-    {
-      label: "Past orders",
-      path: "/account/orders",
+      label: "About",
+      path: "/about",
     },
   ],
 };

@@ -31,19 +31,13 @@ export const Footer: React.FC = () => {
           <h3 className={styles.title}>Your account</h3>
           <ul>
             <li className={styles.item}>
-              <Link className="link" href="/account">
-                Account
-              </Link>
+              <Link href="/account">Account</Link>
             </li>
             <li className={styles.item}>
-              <Link className="link" href="/cart">
-                Cart
-              </Link>
+              <Link href="/cart">Cart</Link>
             </li>
             <li className={styles.item}>
-              <Link className="link" href="/account/orders">
-                Your orders
-              </Link>
+              <Link href="/account/orders">Past orders</Link>
             </li>
           </ul>
         </div>
@@ -62,7 +56,7 @@ export const Footer: React.FC = () => {
           <h3 className={styles.title}>Company</h3>
           <ul>
             <li className={styles.item}>
-              <Link href="/about-us">About us</Link>
+              <Link href="/about">About</Link>
             </li>
             <li className={styles.item}>
               <a onClick={() => toast.info("Fake link")}>Privacy policy</a>
