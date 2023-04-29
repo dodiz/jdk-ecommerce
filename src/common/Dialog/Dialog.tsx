@@ -25,7 +25,7 @@ export const Dialog: React.FC<DialogProps> = ({
 
   return show ? (
     <div className={styles.dialog} onClick={onHide}>
-      <div className={styles.modalWrapper}>
+      <div className={styles.wrapper}>
         <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
           <h2 className={styles.title}>{title}</h2>
           {children}
