@@ -4,18 +4,14 @@
 html {
   font-size: 62.5%;
 }
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
-}
-html,
-body {
-  margin: 0;
-  padding: 0;
 }
 html,
 body,
 #__next {
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -27,10 +23,6 @@ body {
 }
 a {
   text-decoration: none;
-  color: $color-dark;
-  &:hover {
-    color: $color-secondary;
-  }
 }
 
 h1,
