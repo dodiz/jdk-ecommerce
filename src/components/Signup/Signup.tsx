@@ -28,9 +28,9 @@ export const Signup: React.FC<SignupProps> = ({
             password: z
               .string()
               .min(8, "Password must be at least 8 characters"),
-            passwordConfirm: z.string().min(8),
+            passwordRepeat: z.string().min(8),
           })
-          .refine((data) => data.password === data.passwordConfirm, {
+          .refine((data) => data.password === data.passwordRepeat, {
             message: "Passwords must match",
           })
       ),
@@ -41,7 +41,7 @@ export const Signup: React.FC<SignupProps> = ({
     initialValues: {
       email: "",
       password: "",
-      passwordConfirm: "",
+      passwordRepeat: "",
     },
     onSubmit: () => {
       toast.info("Signup not yet implemented");
@@ -77,14 +77,12 @@ export const Signup: React.FC<SignupProps> = ({
           type="password"
         />
         <Input
-          label="Confirm password"
-          name="passwordConfirm"
-          value={formik.values.passwordConfirm}
+          label="Repeat password"
+          name="passwordRepeat"
+          value={formik.values.passwordRepeat}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={
-            formik.touched.passwordConfirm && formik.errors.passwordConfirm
-          }
+          error={formik.touched.passwordRepeat && formik.errors.passwordRepeat}
           type="password"
         />
         <a className={styles.link} onClick={onSigninClick}>
