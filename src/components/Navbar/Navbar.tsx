@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useCallback, useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 
 import { AccountIcon, HamburgerIcon, CartIcon, HeartIcon } from "~icons";
 import { Signin, Signup } from "~components";
@@ -8,6 +9,7 @@ import styles from "./Navbar.module.scss";
 import { navbarUtils } from "./Navbar.utils";
 
 export const Navbar = () => {
+  const { data: sessionData } = useSession();
   const [showMenu, setShowMenu] = useState(false);
 
   const [showSignin, setShowSignin] = useState(false);
@@ -57,9 +59,14 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.user}>
-          <a className={styles.item} onClick={() => setShowSignin(true)}>
+          <a
+            className={styles.item}
+            onClick={() => (sessionData ? void signOut() : setShowSignin(true))}
+          >
             <AccountIcon className={styles.icon} />
-            <span className={styles.label}>Login</span>
+            <span className={styles.label}>
+              {sessionData?.user.name || "Login"}
+            </span>
           </a>
           <Link href="/cart" className={styles.item}>
             <CartIcon className={styles.icon} />

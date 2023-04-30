@@ -9,3 +9,17 @@
 .divider {
   margin-top: 2rem;
 }
+
+.githubButton {
+  align-items: center;
+  background-color: #000;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 500;
+  justify-content: center;
+  padding: 1rem;
+}

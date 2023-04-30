@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { Button, Dialog, Input } from "~common";
 
 import styles from "./Signin.module.scss";
+import { signIn, useSession } from "next-auth/react";
 
 type SigninProps = {
   show: boolean;
@@ -75,6 +76,11 @@ export const Signin: React.FC<SigninProps> = ({
         <div className={styles.divider}>
           <Button label="Login" type="submit" disabled={!formik.isValid} />
         </div>
+        <Button
+          label="Sign in with Github"
+          className={styles.githubButton}
+          onClick={() => void signIn("github")}
+        />
       </form>
     </Dialog>
   );

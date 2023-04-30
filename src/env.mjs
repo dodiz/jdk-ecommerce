@@ -1,12 +1,10 @@
 import { z } from "zod";
 
-/**
- * Specify your server-side environment variables schema here. This way you can ensure the app isn't
- * built with invalid env vars.
- */
 const server = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
-  // DATABASE_URL: z.string().url(),
+  DATABASE_URL: z.string().url(),
+  GITHUB_CLIENT_ID: z.string().min(1),
+  GITHUB_CLIENT_SECRET: z.string().min(1),
   // NEXTAUTH_SECRET:
   //   process.env.NODE_ENV === "production"
   //     ? z.string().min(1)
@@ -30,7 +28,9 @@ const client = z.object(
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
-  // DATABASE_URL: process.env.DATABASE_URL,
+  DATABASE_URL: process.env.DATABASE_URL,
+  GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
   // NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   // NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
