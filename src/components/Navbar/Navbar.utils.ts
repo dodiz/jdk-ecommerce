@@ -1,10 +1,6 @@
 export const navbarUtils = {
   menuLinks: [
     {
-      label: "Home",
-      path: "/",
-    },
-    {
       label: "Abbigliamento Uomo",
       path: "/shop?gender=1",
     },
@@ -15,6 +11,10 @@ export const navbarUtils = {
     {
       label: "About",
       path: "/about",
+    },
+    {
+      label: "Admin panel",
+      path: "/manage",
     },
   ],
 };

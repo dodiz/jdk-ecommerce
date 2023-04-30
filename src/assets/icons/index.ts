@@ -5,3 +5,4 @@ export * from "./InstagramIcon";
 export * from "./FacebookIcon";
 export * from "./CartIcon";
 export * from "./AdminIcon";
+export * from "./HeartIcon";
