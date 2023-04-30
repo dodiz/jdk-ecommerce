@@ -1,53 +1,124 @@
 @import "~styles/variables";
+@import "~styles/globals";
+@import "~styles/_mixins";
 
 .navbar {
-  padding: 0.5rem 3rem;
   position: fixed;
   z-index: 3;
   width: 100%;
   background-color: #fffffff0;
   box-shadow: $box-shadow;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "logo user" "menu menu";
+  grid-template-columns: 1fr auto;
+  @include desktop() {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+  }
 }
 
 .logo {
-  color: inherit;
-  font-size: 2rem;
+  @extend .link;
+  grid-area: logo;
   font-weight: 400;
+  font-size: 1.8rem;
+  padding: 1rem;
+  @include desktop() {
+    font-size: 2rem;
+  }
 }
 
 .logoLetter {
   color: $color-secondary;
 }
 
-.section {
+.menuWrapper {
+  grid-area: menu;
+}
+
+.hamburger {
+  display: block;
+  padding: 0.5rem 1rem;
   display: flex;
+  cursor: pointer;
+  svg {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  @include desktop() {
+    display: none;
+  }
+}
+.hamburgerOpen {
+  @extend .hamburger;
+  svg {
+    fill: $color-secondary;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  opacity: 0;
+  overflow-y: hidden;
+  background: $color-light;
+  transition: all 0.3s;
+  @include desktop() {
+    max-height: initial;
+    flex-direction: row;
+    background: none;
+    opacity: 1;
+  }
+}
+
+.menuOpen {
+  @extend .menu;
+  max-height: fit-content;
+  opacity: 1;
+}
+
+.user {
+  display: flex;
+  grid-area: user;
+  align-items: center;
+  justify-content: center;
+  .label {
+    display: none;
+    @include tablet() {
+      display: inline;
+    }
+  }
 }
 
 .item {
-  cursor: pointer;
+  @extend .link;
   font-size: 1.4rem;
   font-weight: 500;
-  padding: 2rem;
+  padding: 1rem;
   text-transform: capitalize;
-  transition: color 0.3s;
+  transition: all 0.3s;
+  display: flex;
   align-items: center;
-  &:hover a {
-    color: $color-secondary;
-  }
-  &:hover svg {
+
+  &:hover {
     fill: $color-secondary;
   }
-  svg {
-    margin-right: 1rem;
-    height: 25px;
-    width: 25px;
-  }
-}
 
-.account {
-  display: flex;
-  @extend .item;
+  .icon {
+    height: 2.3rem;
+    width: 2.3rem;
+    fill: $color-dark;
+    @include tablet() {
+      margin-right: 1rem;
+    }
+  }
+
+  @include desktop() {
+    padding: 3rem 2rem;
+    border-bottom: none;
+  }
 }

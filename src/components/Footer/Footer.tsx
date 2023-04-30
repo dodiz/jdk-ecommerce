@@ -45,10 +45,13 @@ export const Footer: React.FC = () => {
           <h3 className={styles.title}>Products</h3>
           <ul>
             <li className={styles.item}>
-              <Link href="/shop?gender=2">Abbigliamento uomo</Link>
+              <Link href="/shop">Women</Link>
             </li>
             <li className={styles.item}>
-              <Link href="/shop?gender=1">Abbigliamento donna</Link>
+              <Link href="/shop">Men</Link>
+            </li>
+            <li className={styles.item}>
+              <Link href="/shop">Kids</Link>
             </li>
           </ul>
         </div>

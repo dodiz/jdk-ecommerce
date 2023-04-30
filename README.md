@@ -18,8 +18,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## Some UI custom components made from scratch
 
-- Dropdown menu (Visible from navbar)
-- Dialog Modal (Visible when trying to login / signup). Inspiration from [React Bootstrap](https://react-bootstrap.github.io/components/modal/)
+- Dialog Modal (Visible when trying to login). Inspiration from [React Bootstrap](https://react-bootstrap.github.io/components/modal/)
 - Carousel (Visible on homepage). Inspiration from [React Bootstrap](https://react-bootstrap.github.io/components/carousel/)
 
 ## Utilities libraries
@@ -33,4 +32,4 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## Showcase
 
-You can find a working demo of this project deployed on Vercel at ... (TODO)
+[Here's a working demo](https://jdk-ecommerce-portfolio.vercel.app) of the project.

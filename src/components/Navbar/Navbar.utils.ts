@@ -1,20 +1,24 @@
 export const navbarUtils = {
   menuLinks: [
     {
-      label: "Home",
-      path: "/",
+      label: "Women",
+      path: "/shop",
     },
     {
-      label: "Abbigliamento Uomo",
-      path: "/shop?gender=1",
+      label: "Men",
+      path: "/shop",
     },
     {
-      label: "Abbigliamento Donna",
-      path: "/shop?gender=2",
+      label: "Kids",
+      path: "/shop",
     },
     {
       label: "About",
       path: "/about",
+    },
+    {
+      label: "Admin panel",
+      path: "/manage",
     },
   ],
 };
