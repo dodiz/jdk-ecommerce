@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import cx from "classnames";
 
 import paypalImage from "~images/payments/paypal.webp";
 import masterCardImage from "~images/payments/mastercard.webp";
 import visaImage from "~images/payments/visa.webp";
-
-import { FacebookIcon, InstagramIcon } from "~icons";
-import styles from "./Footer.module.scss";
 import { toast } from "react-toastify";
+
+import { FacebookIcon, GithubIcon, InstagramIcon } from "~icons";
+import styles from "./Footer.module.scss";
 
 export const Footer: React.FC = () => {
   return (
@@ -17,13 +16,16 @@ export const Footer: React.FC = () => {
         <div className={styles.item}>
           <h3 className={styles.title}>Socials</h3>
           <div>
+            <Link href="https://github.com/dodiz/jdk-ecommerce">
+              <GithubIcon className={styles.github} />
+            </Link>
             <FacebookIcon
               onClick={() => toast.info("Fake link")}
-              className={cx(styles.icon, styles.facebook)}
+              className={styles.icon}
             />
             <InstagramIcon
               onClick={() => toast.info("Fake link")}
-              className={cx(styles.icon, styles.instagram)}
+              className={styles.icon}
             />
           </div>
         </div>
@@ -98,7 +100,11 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className={styles.copyright}>Copyright by dodiz</div>
+      <div className={styles.copyright}>
+        <b>Java dressing kit</b> is a web app made for portfolio purposes. More
+        info on{" "}
+        <Link href="https://github.com/dodiz/jdk-ecommerce">Github</Link>
+      </div>
     </footer>
   );
 };
