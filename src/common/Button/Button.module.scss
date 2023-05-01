@@ -26,3 +26,18 @@
     color: $color-light;
   }
 }
+
+.githubButton {
+  @extend .button;
+  background-color: #000;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.githubIcon {
+  fill: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}

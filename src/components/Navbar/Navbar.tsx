@@ -59,15 +59,17 @@ export const Navbar = () => {
           </div>
         </div>
         <div className={styles.user}>
-          <a
-            className={styles.item}
-            onClick={() => (sessionData ? void signOut() : setShowSignin(true))}
-          >
-            <AccountIcon className={styles.icon} />
-            <span className={styles.label}>
-              {sessionData?.user.name || "Login"}
-            </span>
-          </a>
+          {sessionData ? (
+            <a onClick={() => void signOut()} className={styles.item}>
+              <AccountIcon className={styles.icon} />
+              <span className={styles.label}>{sessionData.user.name}</span>
+            </a>
+          ) : (
+            <a className={styles.item} onClick={() => setShowSignin(true)}>
+              <AccountIcon className={styles.icon} />
+              <span className={styles.label}>Login</span>
+            </a>
+          )}
           <Link href="/cart" className={styles.item}>
             <CartIcon className={styles.icon} />
             <span className={styles.label}>€0.00</span>

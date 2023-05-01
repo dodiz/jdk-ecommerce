@@ -3,8 +3,9 @@ import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
 import { toast } from "react-toastify";
+import { signIn } from "next-auth/react";
 
-import { Button, Dialog, Input } from "~common";
+import { Button, Dialog, GithubButton, Input } from "~common";
 
 import styles from "./Signup.module.scss";
 
@@ -91,10 +92,14 @@ export const Signup: React.FC<SignupProps> = ({
         <div className={styles.divider}>
           <Button label="Signup" disabled={!formik.isValid} />
         </div>
-        <p className={styles.disclaimer}>
-          By signing up you agree to our terms of service
-        </p>
       </form>
+      <GithubButton
+        label="Signup with Github"
+        onClick={() => void signIn("github")}
+      />
+      <p className={styles.disclaimer}>
+        By signing up you agree to our terms of service
+      </p>
     </Dialog>
   );
 };
