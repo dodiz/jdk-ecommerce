@@ -6,19 +6,8 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
-    // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    provider = "postgresql"
     url      = env("DATABASE_URL")
-}
-
-model Example {
-    id        String   @id @default(cuid())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
 }
 
 // Necessary for Next auth
@@ -64,4 +53,44 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Category {
+    id              String   @id @default(cuid())
+    name            String
+    subCategories   SubCategory[]
+}
+model SubCategory {
+    id          String   @id @default(cuid())
+    name        String
+    category    Category @relation(fields: [categoryId], references: [id])
+    categoryId  String
+    products    Product[]
+}
+
+model Size {
+    id          String   @id @default(cuid())
+    name        String
+    shortName   String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+}
+
+model Product {
+    id              String   @id @default(cuid())
+    name            String
+    price           Float
+    subCategory     SubCategory @relation(fields: [subCategoryId], references: [id])
+    subCategoryId   String
+    combinations    Combination[]
+    description     String
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+}
+
+model Combination {
+    id          String   @id @default(cuid())
+    product     Product @relation(fields: [productId], references: [id])
+    productId   String
+    image       String
 }

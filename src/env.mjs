@@ -9,10 +9,10 @@ const server = z.object({
   //   process.env.NODE_ENV === "production"
   //     ? z.string().min(1)
   //     : z.string().min(1).optional(),
-  // NEXTAUTH_URL: z.preprocess(
-  //   (str) => process.env.VERCEL_URL ?? str,
-  //   process.env.VERCEL ? z.string().min(1) : z.string().url(),
-  // ),
+  NEXTAUTH_URL: z.preprocess(
+    (str) => process.env.VERCEL_URL ?? str,
+    process.env.VERCEL ? z.string().min(1) : z.string().url(),
+  ),
 });
 
 const client = z.object(
@@ -31,8 +31,8 @@ const processEnv = {
   DATABASE_URL: process.env.DATABASE_URL,
   GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   // NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
-  // NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
