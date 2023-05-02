@@ -17,8 +17,8 @@ export const navbarUtils = {
       path: "/about",
     },
     {
-      label: "Admin panel",
-      path: "/manage",
+      label: "Backoffice",
+      path: "/backoffice",
     },
   ],
 };

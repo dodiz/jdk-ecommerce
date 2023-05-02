@@ -1,11 +1,11 @@
 @import "~styles/variables";
 
-.button {
+.primary {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $color-secondary;
-  padding: 1rem 0;
+  padding: 1rem;
   width: 100%;
   border: 0;
   color: $color-light;
@@ -27,8 +27,16 @@
   }
 }
 
+.secondary {
+  @extend .primary;
+  background-color: $color-dark;
+  &:hover {
+    background-color: $color-secondary;
+  }
+}
+
 .githubButton {
-  @extend .button;
+  @extend .primary;
   background-color: #000;
   border-color: rgba(0, 0, 0, 0.1);
   color: #fff;

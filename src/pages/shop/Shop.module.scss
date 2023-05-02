@@ -1,0 +1,34 @@
+@import "~styles/variables";
+@import "~styles/globals";
+
+.container {
+  @extend .page;
+}
+
+.breadCrumb {
+  padding: 3rem 6rem;
+  background-color: $color-light-tertiary;
+  color: $color-dark;
+}
+
+.wrapper {
+  display: flex;
+  margin-top: 2rem;
+  padding: 0 6rem;
+}
+.shop {
+  flex: 1;
+  @extend .box;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderButton {
+  padding: 1rem 2rem;
+  width: auto;
+}
+.products {
+  content: "";
+}

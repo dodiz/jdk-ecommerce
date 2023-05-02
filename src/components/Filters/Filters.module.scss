@@ -1,0 +1,79 @@
+@import "~styles/variables";
+
+.container {
+  margin-right: 4rem;
+  min-width: 20rem;
+}
+.title {
+  background: $color-secondary-light;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  &:hover {
+    color: $color-secondary;
+    svg {
+      fill: $color-secondary;
+    }
+  }
+}
+.arrowDown {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+.items {
+  transition: all 0.3s;
+  max-height: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.label {
+  border-bottom: 1px solid $color-light-secondary;
+  padding: 1rem 3rem;
+  display: block;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    color: $color-secondary;
+    transform: translateX(1rem);
+  }
+}
+.activeLabel {
+  @extend .label;
+  color: var(--color-secondary) !important;
+  background: var(--color-light-tertiary);
+}
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.size {
+  background: $color-dark;
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-light;
+  transition: all 0.3s;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-secondary;
+    color: $color-light;
+  }
+}
+
+.sizeSelected {
+  @extend .size;
+  background: $color-secondary;
+  color: $color-light;
+}
