@@ -1,3 +1,4 @@
+import { Poppins } from "next/font/google";
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
@@ -8,6 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 import "~styles/style.scss";
 import { Navbar, Footer } from "~components";
 
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -15,9 +21,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <ToastContainer />
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <main className={poppins.className}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </main>
     </SessionProvider>
   );
 };
