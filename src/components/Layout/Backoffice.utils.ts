@@ -16,10 +16,6 @@ export const backofficeLinks = [
     path: "/backoffice/categories",
   },
   {
-    name: "sizes",
-    path: "/backoffice/sizes",
-  },
-  {
     name: "brands",
     path: "/backoffice/brands",
   },
