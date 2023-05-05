@@ -55,33 +55,33 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-model Category {
-    id              String   @id @default(cuid())
-    name            String
-    subCategories   SubCategory[]
+enum Size {
+    XS
+    S
+    M
+    L
+    XL
+    XXL
 }
-model SubCategory {
+
+enum Gender {
+    Men
+    Women
+    Unisex
+}
+
+model Category {
     id          String   @id @default(cuid())
     name        String
-    category    Category @relation(fields: [categoryId], references: [id])
-    categoryId  String
+    gender      Gender
     products    Product[]
 }
-
-model Size {
-    id          String   @id @default(cuid())
-    name        String
-    shortName   String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-}
-
 model Product {
     id              String   @id @default(cuid())
     name            String
     price           Float
-    subCategory     SubCategory @relation(fields: [subCategoryId], references: [id])
-    subCategoryId   String
+    category        Category @relation(fields: [categoryId], references: [id])
+    categoryId      String
     combinations    Combination[]
     description     String
     createdAt       DateTime @default(now())
@@ -92,5 +92,12 @@ model Combination {
     id          String   @id @default(cuid())
     product     Product @relation(fields: [productId], references: [id])
     productId   String
+    size        Size
     image       String
 }
+
+model Brand {
+    id        String   @id @default(cuid())
+    name      String
+}
+
