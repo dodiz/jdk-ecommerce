@@ -1,0 +1,26 @@
+@import "~styles/variables";
+
+.select {
+  background: transparent;
+  border: 2px solid #cfcaca;
+  outline: none;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 1.2rem;
+  color: $color-dark;
+  width: 100%;
+  transition: border-color 0.3s;
+  font-size: 1.8rem;
+  &:focus {
+    border-color: $color-secondary;
+  }
+}
+
+.group {
+  display: block;
+  margin-top: 2rem;
+}
+
+.label {
+  text-transform: capitalize;
+}

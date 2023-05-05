@@ -1,7 +1,7 @@
+import { useMemo } from "react";
 import cx from "classnames";
 import styles from "./Button.module.scss";
 import { type ButtonProps } from "./Button.types";
-import { useMemo } from "react";
 
 export const Button: React.FC<
   ButtonProps & { variant?: "primary" | "secondary" }
