@@ -1,8 +1,9 @@
 import { createTRPCRouter } from "~server/api/trpc";
-import { sizeRouter } from "~server/api/routers";
+import { brandRouter, categoryRouter } from "~server/api/routers";
 
 export const appRouter = createTRPCRouter({
-  size: sizeRouter,
+  category: categoryRouter,
+  brand: brandRouter,
 });
 
 // export type definition of API
