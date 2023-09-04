@@ -1,17 +1,17 @@
-import { useMemo } from "react";
-import cx from "classnames";
+import type { FC } from "react";
 import styles from "./Button.module.scss";
 import { type ButtonProps } from "./Button.types";
 
-export const Button: React.FC<
-  ButtonProps & { variant?: "primary" | "secondary" }
-> = ({ label, className, variant = "primary", ...rest }) => {
-  const buttonClassName = useMemo(() => {
-    return variant === "primary" ? styles.primary : styles.secondary;
-  }, [variant]);
+export const Button: FC<ButtonProps> = ({
+  label,
+  variant = "primary",
+  ...rest
+}) => {
+  const buttonClassName =
+    variant === "primary" ? styles.primary : styles.secondary;
 
   return (
-    <button className={cx(buttonClassName, className)} {...rest}>
+    <button className={buttonClassName} {...rest}>
       {label}
     </button>
   );

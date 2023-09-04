@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
@@ -15,22 +15,18 @@ type SigninProps = {
   onSignupClick: () => void;
 };
 
+const validate = toFormikValidate(
+  z.object({
+    email: z.string().email("Invalid email address"),
+    password: z.string().nonempty("Password is required"),
+  })
+);
+
 export const Signin: React.FC<SigninProps> = ({
   show,
   onHide,
   onSignupClick,
 }) => {
-  const validate = useMemo(
-    () =>
-      toFormikValidate(
-        z.object({
-          email: z.string().email("Invalid email address"),
-          password: z.string().nonempty("Password is required"),
-        })
-      ),
-    []
-  );
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -46,7 +42,6 @@ export const Signin: React.FC<SigninProps> = ({
     if (!show) {
       formik.resetForm();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show]);
 
   return (
@@ -61,7 +56,7 @@ export const Signin: React.FC<SigninProps> = ({
           error={formik.touched.email && formik.errors.email}
         />
         <Input
-          label="password"
+          label="Password"
           name="password"
           type="password"
           value={formik.values.password}

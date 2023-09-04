@@ -2,7 +2,6 @@ import { useEffect, useMemo } from "react";
 import { useFormik } from "formik";
 import { z } from "zod";
 import { toFormikValidate } from "zod-formik-adapter";
-import { toast } from "react-toastify";
 import { signIn } from "next-auth/react";
 
 import { Button, Dialog, GithubButton, Input } from "~common";
@@ -44,9 +43,12 @@ export const Signup: React.FC<SignupProps> = ({
       password: "",
       passwordRepeat: "",
     },
-    onSubmit: () => {
-      toast.info("Signup not yet implemented");
-    },
+    onSubmit: ({ email, password }) =>
+      void signIn("credentials", {
+        email,
+        password,
+        callbackUrl: "/",
+      }),
     validate,
   });
 

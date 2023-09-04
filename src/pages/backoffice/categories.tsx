@@ -2,7 +2,7 @@ import { Gender } from "@prisma/client";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { Input, Button, Select } from "~common";
-import { BackofficeLayout, BackofficeTable } from "~components";
+import { BackofficeLayout, Table } from "~components";
 import { api } from "~utils";
 
 const Categories = () => {
@@ -23,8 +23,12 @@ const Categories = () => {
         },
         {
           onSuccess: () => {
+            toast.success("Success");
             formik.resetForm();
             return void categories.refetch();
+          },
+          onSettled: () => {
+            toast.success("Setteled");
           },
           onError: (error) => {
             toast.error(error.message);
@@ -33,11 +37,24 @@ const Categories = () => {
       );
     },
   });
-  if (!categories.data) return <div>Loading...</div>;
   return (
     <BackofficeLayout>
       <h1>Categories</h1>
-      <BackofficeTable data={categories.data} headers={["name"]} />
+      <Table
+        data={categories.data}
+        onEdit={() => alert("edit click")}
+        onDelete={(item) =>
+          deleteCategory(
+            { id: item.id },
+            {
+              onSuccess: () => {
+                toast.success("Category deleted");
+                return void categories.refetch();
+              },
+            }
+          )
+        }
+      />
       <form onSubmit={formik.handleSubmit}>
         <Input
           label="name"
@@ -55,7 +72,9 @@ const Categories = () => {
             value: gender,
           }))}
         />
-        <Button label="Add size" type="submit" />
+        <div style={{ marginTop: "2rem", width: "max-content" }}>
+          <Button label="Add category" type="submit" />
+        </div>
       </form>
     </BackofficeLayout>
   );

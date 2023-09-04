@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 import paypalImage from "~images/payments/paypal.webp";
 import masterCardImage from "~images/payments/mastercard.webp";
 import visaImage from "~images/payments/visa.webp";
-import { toast } from "react-toastify";
 
 import { FacebookIcon, GithubIcon, InstagramIcon } from "~icons";
 import styles from "./Footer.module.scss";

@@ -1,2 +1,2 @@
 export * from "./BackofficeLayout";
-export * from "./BackofficeTable";
+export * from "./Table";
